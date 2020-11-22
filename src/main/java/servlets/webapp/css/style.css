@@ -1,0 +1,40 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28-may-2020, 20:27:25
+    Author     : Ruben
+*/
+
+input[type=text]{
+    width: 150%;
+    padding: 3px;
+    box-sizing: border-box;
+        }
+input[type=email]{
+    width: 150%;
+    padding: 3px;
+    box-sizing: border-box;
+        }
+input[type=password]{
+    width: 150%;
+    padding: 3px;
+    box-sizing: border-box;
+        }
+input [type=submit]{
+    padding: 8px 10px;
+    margin:8px 0px;
+    border:solid;
+    cursor: pointer;
+    width: 40%;
+        }
+label {
+    font-size:14px;
+    font-family: Arial;
+    font-weight: bold;
+        }
+#logo{
+    margin: 0 auto;
+        }

@@ -1,0 +1,34 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 20, 2020, 6:19:09 PM
+    Author     : Happy
+*/
+
+.card-deck{
+    margin-left:50px;
+    margin-right: 50px;
+}
+body{
+    background-color: orange;
+}
+footer{
+	background-color:black;
+	width:100%;
+	height:200px;
+}
+.copyright p{
+	color:white;
+}
+.txt h3{
+	color:white;
+	font-size:10px;
+}
+nav ul ol a{
+	color:white;
+	float:right;
+	margin:5px;
+}
