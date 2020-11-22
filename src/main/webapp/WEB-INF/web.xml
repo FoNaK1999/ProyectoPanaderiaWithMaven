@@ -76,6 +76,18 @@
         <servlet-name>servletsolicita</servlet-name>
         <servlet-class>servlets.servletsolicita</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RegistrarChofer</servlet-name>
+        <servlet-class>servlets.RegistrarChofer</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateChofer</servlet-name>
+        <servlet-class>servlets.UpdateChofer</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BorrarChofer</servlet-name>
+        <servlet-class>servlets.BorrarChofer</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddCart</servlet-name>
         <url-pattern>/agregarproducto</url-pattern>
@@ -151,6 +163,18 @@
     <servlet-mapping>
         <servlet-name>servletsolicita</servlet-name>
         <url-pattern>/servletsolicita</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistrarChofer</servlet-name>
+        <url-pattern>/registrarchofer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateChofer</servlet-name>
+        <url-pattern>/UpdateChofer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BorrarChofer</servlet-name>
+        <url-pattern>/BorrarChofer</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
