@@ -78,13 +78,13 @@ public class ModeloIngredientes extends Conexion {
     public boolean UpdateIngrediente(int codigo, String nombre, int cantidad, String rut, String estado){
         PreparedStatement pst = null;
         try{
-        String sql = "update ingredientes set codigo_ing = ? , nombre_ing = ?, cantidad_ing = ?, estado_ing = ? ,rut_prov_ing = ?";
-        pst = getConnection().prepareStatement(sql);
-        pst.setInt(1, codigo);
-        pst.setString(2, nombre);
-        pst.setInt(3, cantidad);
-        pst.setString(4, estado);
-        pst.setString(5, rut);
+        String sql = "update ingredientes set nombre_ing = ?, cantidad_ing = ?, estado_ing = ? ,rut_prov_ing = ? where codigo_ing = ?";
+        pst = getConnection().prepareStatement(sql);       
+        pst.setString(1, nombre);
+        pst.setInt(2, cantidad);
+        pst.setString(3, estado);
+        pst.setString(4, rut);
+        pst.setInt(5, codigo);
         pst.executeUpdate();
         return true;
         }catch(Exception ex){

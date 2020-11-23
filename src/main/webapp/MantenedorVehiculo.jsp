@@ -1,23 +1,21 @@
 <%-- 
-    Document   : MantenedorChofer
-    Created on : 18-11-2020, 16:02:04
+    Document   : MantenedorVehiculo
+    Created on : 22-11-2020, 17:03:33
     Author     : Nicolas_Herrera
 --%>
 
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.Connection"%>
-<%@page import="controllers.ControladorChofer"%>
+<%@page import="controllers.ControladorVehiculo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <%request.setCharacterEncoding("UTF-8");%>
 <%
-   ControladorChofer ch = new ControladorChofer();  
+   ControladorVehiculo cv = new ControladorVehiculo();  
 %>
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Conductores</title>
+	<title>Vehiculos</title>
 	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
         <!----------------------Inicio Links---------------------------------->
@@ -32,7 +30,7 @@
         <!----------------------Fin Links------------------------------------->
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+   	<nav class="navbar navbar-expand-lg navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -44,10 +42,10 @@
                   <a class="nav-link" href="index.html">Casa</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="IngresarChofer.jsp">Ingresar Chofer</a>
+                  <a class="nav-link" href="IngresarVehiculo.jsp">Ingresar Vehiculo</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="MantenedorVehiculo.jsp">Mantenedor Vehiculos</a>
+                  <a class="nav-link" href="#"></a>
                 </li>
               </ul>
                 <!--Nabvar centro-->
@@ -66,6 +64,7 @@
               </ul>
             </div>
           </nav>
+    <form action="registrarvehiculo" method="post">
         <div class="limiter">
             <div class="container-table100">
                 <div class="wrap-table100">
@@ -73,23 +72,21 @@
                         <table>
                             <thead>
                                 <tr class="table100-head">
-                                <th class="column1">NOMBRE</th>
-                                <th class="column6">R.U.T</th>
-                                <th class="column1">FONO</th>
-                                <th class="column1">E-MAIL</th>
-                                <th class="column1">DIRECCION</th>
+                                <th class="column1">MATRICULA</th>
                                 <th class="column1">ESTADO</th>
+                                <th class="column1">R.U.T CHOFER</th>
                                 <th class="column1">ACCIONES</th>
                                 </tr>
                             </thead>
                                 <tbody>
-                                     <%=ch.getDatosChofer()%>
+                                        <%=cv.getDatosVehiculo()%>
                                 </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
+    </form>
 
 	
 

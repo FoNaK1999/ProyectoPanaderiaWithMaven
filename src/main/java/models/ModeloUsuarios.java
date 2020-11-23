@@ -186,10 +186,10 @@ public class ModeloUsuarios extends Conexion {
         return usuarios;
     }
      
-    public boolean UpdateUsuarios(String id, String nombre, String apellido, String fono, String ubicacion, String email, String pass,String estado ,int rol){        
+    public boolean UpdateUsuarios(String id, String nombre, String apellido, String fono, String ubicacion, String email, String pass,String estado){        
         PreparedStatement pst = null;
         try{
-        String sql = "update cliente set nombre_usu = ? , apellido_usu = ? , telefono_usu = ? , ubicacion_usu = ? , mail_usu = ?, pass_usu = ?, estado_usu= ?, id_rol_usu = ? where id_usu = ?";
+        String sql = "update cliente set nombre_usu = ? , apellido_usu = ? , telefono_usu = ? , ubicacion_usu = ? , mail_usu = ?, pass_usu = ?, estado_usu= ? where id_usu = ?";
         pst = getConnection().prepareStatement(sql);
         pst.setString(1, nombre);
         pst.setString(2, apellido);
@@ -198,8 +198,7 @@ public class ModeloUsuarios extends Conexion {
         pst.setString(5, email );
         pst.setString(6, pass);
         pst.setString(7, estado);
-        pst.setInt(8, rol);
-        pst.setString(9, id);
+        pst.setString(8, id);
         pst.executeUpdate();
         return true;
         }catch(Exception ex){

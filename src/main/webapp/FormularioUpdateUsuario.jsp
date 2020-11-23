@@ -1,25 +1,50 @@
+<%@page import="controllers.ControladorVehiculo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    //String error = request.getParameter("error");
-    int id = Integer.parseInt(request.getParameter("id"));
+    
+    String id = request.getParameter("id");
     String nombre = request.getParameter("nombre");
     String apellido = request.getParameter("Apellido");
     String fono = request.getParameter("fono");
-    String ubicacion = request.getParameter("Ubicacion");
     String email = request.getParameter("email");
+    String ubicacion = request.getParameter("Ubicacion");
     String pass = request.getParameter("pass");
-    int rol = Integer.parseInt(request.getParameter("rol"));
+    String estado = request.getParameter("estado");
+    
+    
+    
+    String status = request.getParameter("status");
 %>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="Content-type" content="text/html" charset=UTF-8" />
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <title>Modificar Usuario</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+	function showContent() {
+		element = document.getElementById("content");
+		check = document.getElementById("check");
+		if (check.checked) {
+			element.style.display='block';
+		}
+		else {
+			element.style.display='none';
+		}
+	}
+	/*function showContent() {
+	   element = document.getElementById("content");
+	   if (check.checked) {
+	      element.style.display='block';
+	   } else {
+	      element.style.display='none';
+	   }
+	}*/
+	</script>
         
         <link rel="shortcut icon" href="img/panaderia1.png" type="image/png">
         <meta charset="UTF-8">
@@ -37,22 +62,23 @@
                  </div>
           </nav> 
         <center>
-
             <h1 align="center">Modificar Usuario</h1>
                 <form action="ActualizarUsuario" method="post">
                     <table>
-                        <tr><td colspan="2"><label>Rut: </label></td></tr>
+                        <tr><td colspan="2"><label>R.U.N: </label></td></tr>
                         <tr><td><input type="text" name="idusu" value="<%=id%>" required readonly="readonly"></td></tr>
-                        <tr><td colspan="2"><label>Nombre Usuario: </label></td></tr>
-                        <tr><td><input type="text" name="nombre" value="<%=nombre%>" required></td></tr>
-                        <tr><td colspan="2"><label>Apellido Usuarios: </label></td></tr>
-                        <tr><td><input type="text" name="apellido" value="<%=apellido%>" required></td></tr>
-                        <tr><td colspan="2"><label>Numero Telefonico: </label></td></tr>
-                        <tr><td><input type="text" name="fono" value="<%=fono%>" required></td></tr>
-                        <tr><td colspan="2"><label>Ubicacion: </label></td></tr>
-                        <tr><td><input type="text" name="ubicacion" value="<%=ubicacion%>" required></td></tr>
-                        <tr><td colspan="2"><label>Correo Electronico: </label></td></tr>
-                        <tr><td><input type="text" name="email" value="<%=email%>" required ></td></tr>
+                        <tr><td colspan="2"><label>Nombre: </label></td></tr>
+                        <tr><td><input type="text" name="nombre" value="<%=nombre%>" required readonly="readonly"></td></tr>
+                        <tr><td colspan="2"><label>Apellido: </label></td></tr>
+                        <tr><td><input type="text" name="apellido" value="<%=apellido%>" required readonly="readonly"></td></tr>                        
+                        <tr><td colspan="2"><label>Telefono: </label></td></tr>
+                        <tr><td><input type="text" name="fono" value="<%=fono%>" required readonly="readonly"></td></tr>                        
+                        <tr><td colspan="2"><label>Direccion: </label></td></tr>
+                        <tr><td><input type="text" name="ubicacion" value="<%=ubicacion%>" required readonly="readonly"></td></tr>
+                        <tr><td colspan="2"><label>Correo electronico: </label></td></tr>
+                        <tr><td><input type="text" name="email" value="<%=email%>" required readonly="readonly"></td></tr>                        
+                        <tr><td colspan="2"><label>Password: </label></td></tr>
+                        <tr><td><input type="text" name="pass" value="<%=pass%>" required readonly="readonly"></td></tr>
                         <tr><td><label colspan="2">Estado:</label></td></tr>
                         <tr><td><div id="content" style="padding:20px">
                             <label>Disponible</label>
@@ -60,15 +86,21 @@
                             <label>No Disponible</label>
                                 <input type="radio"  name="state" value="No Disponible" required>
                                 </div></td></tr>
-                        <tr><td colspan="2"><label>Password: </label></td></tr>
-                        <tr><td><input type="text" name="pass" value="<%=pass%>" required></td></tr>
-                        <tr><td colspan="2"><label>Rol: </label></td></tr>
-                        <tr><td><input type="text" name="rol" value="<%=rol%>" required></td></tr>
-                        <tr><td><input type="submit" value="Actualizar Usuario"/></td></tr>
+                        <tr><td><input type="submit" value="Actualizar"/></td></tr>
                     </table>
                 </form>
+                        <%
+                        if(status!=null){
+                        %>
+                        <p><strong style="color:red;"><%=status%></strong></p>
+                        <%
+                        }else{
+                        %>
+                        <p><strong style="color:red;"> </strong></p>
+                        <%
+                        }    
+                        %>
             <a href="javascript:window.history.go(-1);" style="float:left; border:2px black solid; background-color:gainsboro;">Volver al listado</a>
-            
         </center>
     </body>
 </html>

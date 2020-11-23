@@ -25,6 +25,15 @@ public class ControladorProveedores extends Conexion {
         }        
         return htmlcode;        
     }
+       
+    public String getRutProveedor() throws SQLException{
+        ModeloProveedor mprov = new ModeloProveedor();
+        String htmlcode = "";           
+        for(Proveedor proveedor : mprov.getListProveedor()){
+            htmlcode +="<option value="+proveedor.getRut()+">"+proveedor.getNombre()+"</option>";
+        }        
+        return htmlcode;        
+    }
 
     
 }

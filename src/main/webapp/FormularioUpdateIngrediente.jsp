@@ -1,5 +1,8 @@
+<%@page import="controllers.ControladorProveedores"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
+    
+    ControladorProveedores cp = new ControladorProveedores();
     int codigo = Integer.parseInt(request.getParameter("id"));
     String nombre = request.getParameter("nombre");
     int cantidad = Integer.parseInt(request.getParameter("cantidad"));
@@ -63,8 +66,12 @@
                         <tr><td><input type="text" name="nombreing" value="<%=nombre%>" required></td></tr>
                         <tr><td colspan="2"><label>Cantidad: </label></td></tr>
                         <tr><td><input type="text" name="cantidad" value="<%=cantidad%>" required></td></tr>
-                        <tr><td colspan="2"><label>Rut Proveedor: </label></td></tr>
-                        <tr><td><input type="text" name="rut" value="<%=rut%>" required></td></tr>
+                        <tr><td>
+                                <select name="rutprov">
+                                 <option value = "<%=rut%>">No cambiar proveedor</option>
+                                    <%=cp.getRutProveedor()%>
+                                </select>
+                        </td></tr>
                         <tr><td><label colspan="2">Cambiar estado:</label></td></tr>
                         <tr><td><div id="content" style="padding:20px">
                             <label>Disponible</label>

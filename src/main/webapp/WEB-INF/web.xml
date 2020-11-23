@@ -88,6 +88,22 @@
         <servlet-name>BorrarChofer</servlet-name>
         <servlet-class>servlets.BorrarChofer</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ActualizarVehiculo</servlet-name>
+        <servlet-class>servlets.ActualizarVehiculo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BorrarVehiculo</servlet-name>
+        <servlet-class>servlets.BorrarVehiculo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>registrarvehiculo</servlet-name>
+        <servlet-class>servlets.registrarvehiculo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateVehiculo</servlet-name>
+        <servlet-class>servlets.UpdateVehiculo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddCart</servlet-name>
         <url-pattern>/agregarproducto</url-pattern>
@@ -175,6 +191,22 @@
     <servlet-mapping>
         <servlet-name>BorrarChofer</servlet-name>
         <url-pattern>/BorrarChofer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActualizarVehiculo</servlet-name>
+        <url-pattern>/ActualizarVehiculo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BorrarVehiculo</servlet-name>
+        <url-pattern>/BorrarVehiculo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>registrarvehiculo</servlet-name>
+        <url-pattern>/registrarvehiculo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateVehiculo</servlet-name>
+        <url-pattern>/UpdateVehiculo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

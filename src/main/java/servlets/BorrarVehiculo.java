@@ -11,13 +11,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import models.ModeloUsuarios;
+import models.ModeloVehiculo;
 
 /**
  *
  * @author marti
  */
-public class ActualizarUsuario extends HttpServlet {
+public class BorrarVehiculo extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,23 +31,10 @@ public class ActualizarUsuario extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        ModeloUsuarios mu = new ModeloUsuarios();
-        
-        String id = request.getParameter("idusu");
-        String nombre = request.getParameter("nombre");
-        String apellido = request.getParameter("apellido");
-        String fono = request.getParameter("fono");
-        String ubicacion = request.getParameter("ubicacion");
-        String email = request.getParameter("email");
-        String pass = request.getParameter("pass");
-        String estado = request.getParameter("state");
-        if(mu.UpdateUsuarios(id, nombre, apellido, fono, ubicacion, email, pass, estado)){
-            response.sendRedirect("mantenedorUsuarios.jsp");
-        }
-        
-        
-        
+        ModeloVehiculo mv = new ModeloVehiculo();
+        String matricula = request.getParameter("hidden");
+        mv.EliminarVehiculo(matricula);
+        response.sendRedirect("MantenedorVehiculo.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

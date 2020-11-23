@@ -80,15 +80,15 @@ public class ModeloProveedor extends Conexion {
     public boolean UpdateProveedor(String rut, String nombre, String nombreempresa, String direccion, String telefono, String email, String estado){
         PreparedStatement pst = null;
         try{
-        String sql = "update proveedor set rut_prov = ? , nombre_prov = ?, empresa_prov = ?, direccion_prov = ?, telefono_prov = ?, email_prov = ?, estado_prov = ?";
+        String sql = "update proveedor set nombre_prov = ?, empresa_prov = ?, direccion_prov = ?, telefono_prov = ?, email_prov = ?, estado_prov = ? where rut_prov = ?";
         pst = getConnection().prepareStatement(sql);
-        pst.setString(1, rut);
-        pst.setString(2, nombre);
-        pst.setString(3, nombreempresa);
-        pst.setString(4, direccion);
-        pst.setString(5, telefono);
-        pst.setString(6, email);
-        pst.setString(7, estado);
+        pst.setString(1, nombre);
+        pst.setString(2, nombreempresa);
+        pst.setString(3, direccion);
+        pst.setString(4, telefono);
+        pst.setString(5, email);
+        pst.setString(6, estado);
+        pst.setString(7, rut);
         pst.executeUpdate();
         return true;
         }catch(Exception ex){
@@ -134,4 +134,7 @@ public class ModeloProveedor extends Conexion {
         
         return false;
     }
+        
+        
+    
 }

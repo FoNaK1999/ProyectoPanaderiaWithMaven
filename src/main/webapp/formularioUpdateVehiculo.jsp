@@ -1,15 +1,25 @@
+<%-- 
+    Document   : formularioUpdateVehiculo
+    Created on : 23/11/2020, 11:55:40 AM
+    Author     : marti
+--%>
+
+<%@page import="controllers.ControladorVehiculo"%>
 <%@page import="controllers.ControladorProveedores"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    ControladorProveedores cp = new ControladorProveedores();
+    ControladorVehiculo cv = new ControladorVehiculo();
     String status = request.getParameter("status");
+    
+    String matricula = request.getParameter("matricula");
+    String rutchofer = request.getParameter("rutchofer");
 %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
-        <title>Ingresar Ingrediente</title>
+        <title>Ingresar Vehiculo</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -27,19 +37,17 @@
                  </div>
           </nav> 
         <center>
-            <h1 align="center">Ingresar Ingrediente</h1>
-                <form action="RegistrarIngrediente" method="post">
+            <h1 align="center">Ingresar Vehiculo</h1>
+                <form action="UpdateVehiculo" method="post">
                     <table>
-                        <tr><td colspan="2"><label>Codigo ingrediente: </label></td></tr>
-                        <tr><td><input type="text" name="cod" required></td></tr>
-                        <tr><td colspan="2"><label>Nombre: </label></td></tr>
-                        <tr><td><input type="text" name="nombreing" required></td></tr>
-                        <tr><td colspan="2"><label>Cantidad: </label></td></tr>
-                        <tr><td><input type="text" name="cantidad" required></td></tr>
+                        <tr><td colspan="2"><label>Matricula: </label></td></tr>
+                        <tr><td><input type="text" name="matricula" value="<%=matricula%>" required></td></tr>
+                        <tr><td colspan="2"><label>R.U.N Chofer: </label></td></tr>
+                        <tr><td><input type="text" name="rutchofer" value="<%=rutchofer%>" required></td></tr>
                         <tr><td>
-                                <select name="rutprov">
-                                 <option>Seleccionar proveedor</option>
-                                    <%=cp.getRutProveedor()%>
+                                <select name="rutchofer">
+                                 <option value="<%=rutchofer%>">Seleccionar vehiculo</option>
+                                    <%=cv.getRutChofer()%>
                                 </select>
                         </td></tr>
                         <tr><td><div id="content" style="padding:20px">
@@ -66,4 +74,3 @@
         </center>
     </body>
 </html>
-

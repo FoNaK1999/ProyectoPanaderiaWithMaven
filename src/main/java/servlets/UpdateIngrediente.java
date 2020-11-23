@@ -36,7 +36,7 @@ public class UpdateIngrediente extends HttpServlet {
         String nombre = request.getParameter("nombreing");
         int cantidad = Integer.parseInt(request.getParameter("cantidad"));
         String estado = request.getParameter("state");
-        String rut = request.getParameter("rut");
+        String rut = request.getParameter("rutprov");
         
         ModeloIngredientes ming = new ModeloIngredientes();
         

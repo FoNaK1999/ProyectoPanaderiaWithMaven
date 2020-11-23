@@ -35,7 +35,7 @@ public class RegistrarIngrediente extends HttpServlet {
         int codigo = Integer.parseInt(request.getParameter("cod"));
         String nombre = request.getParameter("nombreing");
         int cantidad = Integer.parseInt(request.getParameter("cantidad"));
-        String rut = request.getParameter("rut");
+        String rut = request.getParameter("rutprov");
         String state = request.getParameter("state");
         
         ModeloIngredientes ming = new ModeloIngredientes();
