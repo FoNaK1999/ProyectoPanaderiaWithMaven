@@ -50,7 +50,7 @@
                 <!--Navbar derecho-->
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="javascript:window.history.go(-1);">Volver</a>
+                  <a class="nav-link" href="mantenedor.jsp">Volver al menú</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#"></a>

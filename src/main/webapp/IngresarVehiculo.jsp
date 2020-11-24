@@ -33,7 +33,7 @@
             <h1 align="center">Datos Vehiculo</h1>
                 <form action="registrarvehiculo" method="post">
                     <table>
-                        <tr><td colspan="2"><label>Matricula: </label></td></tr>
+                        <tr><td colspan="2"><label>PATENTE: </label></td></tr>
                         <tr><td><input type="text" name="matricula_ve" required></td></tr>
                         <tr><td colspan="2"><label>CHOFER: </label></td></tr>
                         <tr><td><select name="rut_ve">

@@ -19,7 +19,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
-        <title>Ingresar Vehiculo</title>
+        <title>Modificar Vehiculo</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -37,12 +37,12 @@
                  </div>
           </nav> 
         <center>
-            <h1 align="center">Ingresar Vehiculo</h1>
+            <h1 align="center">Modificar Vehiculo</h1>
                 <form action="UpdateVehiculo" method="post">
                     <table>
-                        <tr><td colspan="2"><label>Matricula: </label></td></tr>
+                        <tr><td colspan="2"><label>PATENTE: </label></td></tr>
                         <tr><td><input type="text" name="matricula" value="<%=matricula%>" required></td></tr>
-                        <tr><td colspan="2"><label>R.U.N Chofer: </label></td></tr>
+                        <tr><td colspan="2"><label>R.U.T Chofer: </label></td></tr>
                         <tr><td><input type="text" name="rutchofer" value="<%=rutchofer%>" required></td></tr>
                         <tr><td>
                                 <select name="rutchofer">

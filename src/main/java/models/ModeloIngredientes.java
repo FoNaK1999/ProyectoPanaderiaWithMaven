@@ -48,7 +48,7 @@ public class ModeloIngredientes extends Conexion {
     public boolean RegistrarIngrediente(int codigo, String nombre, int cantidad,String estado, String rut){
         PreparedStatement pst = null;
         try{
-        String sql = "insert into ingredientes (codigo_ing,nombre_ing,cantidad_ing,estado_ing,rut_prov_ing) values (?,?,?,?,?)";
+        String sql = "insert into ingredientes (codigo_ing,nombre_ing,cantidad_ing,rut_prov_ing,estado_ing) values (?,?,?,?,?)";
         pst = getConnection().prepareStatement(sql);
         pst.setInt(1, codigo);
         pst.setString(2, nombre);
