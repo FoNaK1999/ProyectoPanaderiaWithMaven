@@ -5,23 +5,20 @@
  */
 package servlets;
 
-import classes.Session;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import models.ModeloFactura;
+import models.ModeloPedidos;
 
 /**
  *
- * @author Nicolas
+ * @author marti
  */
-@WebServlet(name = "ServletFactura", urlPatterns = {"/Private"})
-public class ServletFactura extends HttpServlet {
+public class ServletFactura2 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,21 +31,21 @@ public class ServletFactura extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        //Tabla Pedidos
-        ModeloFactura mf1 =  new ModeloFactura();
-                   
-        String rut = request.getParameter("rutcliente");
-        String matricula = request.getParameter("matricula");
-        String estado1 = "pendiente";
         
-        int valor = mf1.RegistrarPedido(estado1, rut, matricula); 
+        ModeloPedidos mp = new ModeloPedidos();
         
-        if(valor>0){           
+        int valor = 0;                     
+        valor = mp.RegistrarPedido("Pendiente", request.getParameter("rut"),request.getParameter("patente"));
+        
+        if(valor>0){
             response.sendRedirect("factura.jsp?valor="+valor);
+        }else{
+            response.sendRedirect("error.jsp");
         }
         
+        
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

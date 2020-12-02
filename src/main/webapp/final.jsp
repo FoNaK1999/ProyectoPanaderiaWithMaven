@@ -15,9 +15,10 @@
         <title>Pedido</title>
     </head>
     <body>
-        <form action="Private" method="post" id="pedido">
-            <input type="text" style="display:none;"  name="rutcliente" value="<%=miusuario.getId()%>">
-            <input type="text" style="display:none;" name="matricula" value="F123T4">           
+        
+        <form action="ServletFactura2" method="post" id="pedido">
+            <input type="hidden"  name="rut" value="<%=miusuario.getId()%>">
+            <input type="hidden"  name="patente" value="FS12RT">
         </form>
             
         <script>

@@ -56,17 +56,20 @@ public class servletsolicita extends HttpServlet {
             String htmlcode = "";
             for(Articulo a: articulos){
                 ModeloFactura mf = new ModeloFactura();
+                ModeloFactura mf2 = new ModeloFactura();
+                
                 Producto producto = cp.getProducto(a.getIdProducto());               
 //                cantidad += a.getCantidad();
 //                idprod += a.getIdProducto();
-                  mf.RegistrarSolicitar(a.getIdProducto(), a.getCantidad(), idped, rows);           
+                if(mf.RegistrarSolicitar(a.getIdProducto(), a.getCantidad(), idped, rows)){
+                    
+                    if(mf2.UpdateStock(cantidad, idprod)){
+                        response.sendRedirect("index.html");
+                    }else{
+                        response.sendRedirect("error.jsp");
+                    }                                      
+                }      
             }
-            
-
-            
-       response.sendRedirect("index.html");
-
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

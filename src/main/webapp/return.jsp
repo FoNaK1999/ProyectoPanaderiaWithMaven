@@ -35,7 +35,8 @@
     </head>
     <body>
         <%           
-            if(output.getResponseCode()==0){             
+            if(output.getResponseCode()==0){ 
+            
         %> 
         
         <script>localStorage.clear();</script>

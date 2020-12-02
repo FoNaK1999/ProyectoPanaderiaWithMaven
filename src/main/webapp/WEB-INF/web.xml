@@ -104,6 +104,10 @@
         <servlet-name>UpdateVehiculo</servlet-name>
         <servlet-class>servlets.UpdateVehiculo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletFactura2</servlet-name>
+        <servlet-class>servlets.ServletFactura2</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddCart</servlet-name>
         <url-pattern>/agregarproducto</url-pattern>
@@ -207,6 +211,10 @@
     <servlet-mapping>
         <servlet-name>UpdateVehiculo</servlet-name>
         <url-pattern>/UpdateVehiculo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletFactura2</servlet-name>
+        <url-pattern>/ServletFactura2</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

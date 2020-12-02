@@ -6,28 +6,34 @@
 package models;
 
 import classes.Pedido;
+import com.mysql.jdbc.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  *
- * @author Nicolas
+ * @author marti
  */
- //Buscar factura
-public class ModeloFactura extends Conexion{
-   public int RegistrarPedido(String estado, String rutCliente, String matricula){
-     PreparedStatement pst = null;
+public class ModeloPedidos extends Conexion {
+    public int RegistrarPedido(String estado, String rutCliente, String matricula){
+        PreparedStatement pst = null;
         ResultSet rs = null;
         int lastid = -1;
+        
+        System.out.println("Modelo: "+estado + rutCliente + matricula);
+        
         try{
+            
                 String sql = "insert into pedidos (fecha_ped, estado_ped, id_usu_ped, id_ve_ped) values (CURDATE(),?,?,?)";
                 pst = getConnection().prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
                 pst.setString(1,estado);
                 pst.setString(2,rutCliente);
                 pst.setString(3,matricula);
+                System.out.println("Modelo TRY: "+estado +" "+ rutCliente +" "+ matricula);
                 pst.executeUpdate();
+
+                
                 
                 rs = pst.getGeneratedKeys();
                 
@@ -166,12 +172,9 @@ public class ModeloFactura extends Conexion{
     }
     
     public static void main(String[] args){
-       ModeloFactura mf = new ModeloFactura();
+       ModeloPedidos mf = new ModeloPedidos();
        int valor = mf.RegistrarPedido("Disponible", "12.313.123-K", "FS12RT");
        
         System.out.println(valor);        
     }
 }
- //Fin Buscar  factura
-
-//UPDATE tabla productos stock_producto= stock_producto -'cantidad' WHERE id_producto='id'
