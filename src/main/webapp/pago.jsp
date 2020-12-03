@@ -88,9 +88,6 @@
                                                         total += a.getCantidad() * producto.getPrecio();                                                                                                                                                                
                                                 %>
                                                 
-                                                <%
-                                                    htmlcode += "<input type='text' name='idprod' value='"+a.getIdProducto()+"'>\n"+"<input type='text' name='cantidad' value='"+a.getCantidad()+"'>";                                            
-                                                %>
                                                 
                                                 
                                                 
@@ -129,7 +126,6 @@
                                             
                                                 <%}}%>
 					</tbody>
-                                        <h1><%=htmlcode%></h1>
 				</table>
                                         <!--<input type="submit" value="Insertar pago a bd">-->
                                  </form>       
@@ -187,22 +183,6 @@
             box-sizing: border-box;
         }
     </style>
-        <!--<table>
-                   
-                    <!--Para la pagina de pago
-                    <tr><td colspan="2"><label>Ingrese datos</label></td></tr>
-                    <tr><td align="center" rowspan="2"><label1>Tipo de pago:</label1></td></tr>
-                    <tr><td><select name="etp" style="margin: 10px;" required>
-                    <option value="" disable selected>Selecciona una opción</option>                               
-                    <option value="Credito">Credito</option>
-                    <option value="Debito">Debito</option>
-                    <option value="Efectivo">Efectivo</option>
-                    </select></td></tr>
-                    <input type="text" name="total" value="" style="display: none;">
-                    <!--Boton
-                    <tr><td colspan="2" style="text-align:center;">
-                            <input type="submit" value="Aceptar"/></td></tr>
-        </table>-->
         <script src="js/carrito.js"></script>
     </body>
 </html>

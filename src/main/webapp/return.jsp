@@ -25,6 +25,7 @@
     TransactionResultOutput result =
         transaction.getTransactionResult(request.getParameter("token_ws"));
     WsTransactionDetailOutput output = result.getDetailOutput().get(0);
+    
 
 %>
 <!DOCTYPE html>
@@ -40,9 +41,9 @@
         %> 
         
         <script>localStorage.clear();</script>
-        <script>localStorage.setItem("authorizationCode","<%=output.getAuthorizationCode()%>");</script>
         <script>localStorage.setItem("amount","<%=output.getAmount()%>");</script>
-        <script>localStorage.setItem("responseCode","<%=output.getResponseCode()%>");</script>
+        <script>localStorage.setItem("codeorder","<%=output.getBuyOrder()%>");</script>
+        <script>localStorage.setItem("tipopago","<%=output.getPaymentTypeCode()%>");</script>
                            
         <form action="<%=result.getUrlRedirection()%>" method="post" id="return-form">
             <input type="hidden" name="token_ws" value="<%=token_ws%>">

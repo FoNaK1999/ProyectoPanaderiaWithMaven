@@ -33,11 +33,27 @@ public class ServletFactura2 extends HttpServlet {
             throws ServletException, IOException {
         
         ModeloPedidos mp = new ModeloPedidos();
+        ModeloPedidos mp2 = new ModeloPedidos();
+        
+        String codeorder =request.getParameter("codeorder");
+        String tipopago = request.getParameter("tipopago");
+        int monto = Integer.parseInt(request.getParameter("monto"));
+        String estado = "Aprobado";
+        switch(tipopago){
+            case "VN":
+                tipopago = "Venta Normal";
+                break;
+            case "VD":
+                tipopago= "Venta Debito";
+                break;
+        }
+        System.out.println("Tipo Pago: "+tipopago+"Codigo de orden: "+codeorder);
         
         int valor = 0;                     
-        valor = mp.RegistrarPedido("Pendiente", request.getParameter("rut"),request.getParameter("patente"));
+        valor = mp.RegistrarPedido("Pendiente", request.getParameter("rut"),request.getParameter("patente"));               
         
         if(valor>0){
+            mp2.RegistrarVenta(codeorder, monto, tipopago, estado, valor);
             response.sendRedirect("factura.jsp?valor="+valor);
         }else{
             response.sendRedirect("error.jsp");

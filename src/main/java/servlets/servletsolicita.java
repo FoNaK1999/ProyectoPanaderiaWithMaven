@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import models.ModeloFactura;
+import models.ModeloPedidos;
 
 /**
  *
@@ -45,31 +46,51 @@ public class servletsolicita extends HttpServlet {
         int rows = Integer.parseInt(request.getParameter("rows"));
         int idped = Integer.parseInt(request.getParameter("idped"));
         int contador=0;
+        String estadoventa = "Pendiente";
         
-        int cantidad = 0;
-        int idprod = 0;
-        
+        boolean estado = false;
         
         ControladorProducto cp = new ControladorProducto();
             int total = 0;
             
-            String htmlcode = "";
+            
             for(Articulo a: articulos){
-                ModeloFactura mf = new ModeloFactura();
-                ModeloFactura mf2 = new ModeloFactura();
                 
-                Producto producto = cp.getProducto(a.getIdProducto());               
+                ModeloFactura mf = new ModeloFactura();
+                ModeloPedidos mp = new ModeloPedidos();
+                ModeloPedidos mp2 = new ModeloPedidos();
+                
+                
+                
+                Producto producto = cp.getProducto(a.getIdProducto());
+                                
 //                cantidad += a.getCantidad();
 //                idprod += a.getIdProducto();
+//                mf.RegistrarSolicitar(a.getIdProducto(), a.getCantidad(), idped, rows);             
+//                mp.UpdateStock(a.getCantidad(), a.getIdProducto());
                 if(mf.RegistrarSolicitar(a.getIdProducto(), a.getCantidad(), idped, rows)){
-                    
-                    if(mf2.UpdateStock(cantidad, idprod)){
-                        response.sendRedirect("index.html");
+                    estado=true;
+                    if(estado = true){
+                        mp.UpdateStock(a.getCantidad(), a.getIdProducto());
                     }else{
-                        response.sendRedirect("error.jsp");
-                    }                                      
-                }      
+                        estado = false;
+                    }
+                }
+
             }
+            
+            if(estado = true){
+                
+                response.sendRedirect("Termino.jsp");
+            }else{
+                response.sendRedirect("error.jsp");
+            }
+            
+
+            
+       
+
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
