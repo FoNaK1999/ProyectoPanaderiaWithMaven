@@ -17,21 +17,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%
-            ControladorProducto cp = new ControladorProducto();
-            int total = 0;
-            String htmlcode = "";
-            if(articulos != null){
-            for(Articulo a: articulos){
-                Producto producto = cp.getProducto(a.getIdProducto());
-                total += a.getCantidad() * producto.getPrecio();                                                                                                                                                                
-                htmlcode += "<input type='text' name='idprod' value='"+a.getIdProducto()+"'>\n"+"<input type='text' name='cantidad' value='"+a.getCantidad()+"'>";
-            }
-          }
-        %>
         <form action="servletsolicita" method="post" id="solicita" >
-            <input type="text" name="rows" value="<%=rows%>">
-            <input type="text" name="idped" value="<%=valor%>">
+            <input type="hidden" name="rows" value="<%=rows%>">
+            <input type="hidden" name="idped" value="<%=valor%>">
         </form>
         <script>
             document.getElementById('solicita').submit();

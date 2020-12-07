@@ -349,13 +349,13 @@
                                                     }else{
                                                 %>
                                                         <!--<a class="btn btn-default check_out" href="PaginaTest.jsp">probar</a>-->
-                                                <a class="btn btn-default check_out" href="pago.jsp?total=<%= total%>">PAGAR</a>                                              
+                                                <a class="btn btn-default check_out" href="pago.jsp?total=<%=total%>">PAGAR</a>                                              
                                                 <%
                                                     }
                                                 %>    
                                                 <!--boton pagar-->
 							<!--<a class="btn btn-default update" href="">Update</a>
-							<a class="btn btn-default check_out" href="pago.jsp?total=<%= total%>">PAGAR</a>-->
+							<a class="btn btn-default check_out" href="pago.jsp?total="">PAGAR</a>-->
                                                 <!--fin boton pagar-->
 					</div>
 				</div>

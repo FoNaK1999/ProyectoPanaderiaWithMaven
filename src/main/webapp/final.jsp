@@ -17,7 +17,19 @@
     HttpSession misession= (HttpSession) request.getSession();
     Session miusuario= (Session) misession.getAttribute("usuario");
     
-     String tipopago="hola";
+    bank b = new bank();
+    
+    WebpayNormal transaction = b.calltransaction();
+    // ...  
+    
+    String TBK_TOKEN  = request.getParameter("TBK_TOKEN");
+    String TBK_ORDEN_COMPRA = request.getParameter("TBK_ORDEN_COMPRA");
+    String TBK_ID_SESION = request.getParameter("TBK_ID_SESION");
+    
+    if(TBK_TOKEN!=null){
+        response.sendRedirect("error.jsp");
+    }
+  
 %>
 <!DOCTYPE html>
 <html>
@@ -25,8 +37,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Pedido</title>
     </head>
-    <body>        
-        <%
+    <body>
+        
+        <%               
+            
             ControladorProducto cp = new ControladorProducto();
             int total = 0;
             String htmlcode = "";

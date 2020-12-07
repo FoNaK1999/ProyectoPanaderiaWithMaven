@@ -45,29 +45,16 @@ public class servletsolicita extends HttpServlet {
         
         int rows = Integer.parseInt(request.getParameter("rows"));
         int idped = Integer.parseInt(request.getParameter("idped"));
-        int contador=0;
-        String estadoventa = "Pendiente";
         
         boolean estado = false;
         
-        ControladorProducto cp = new ControladorProducto();
-            int total = 0;
             
             
             for(Articulo a: articulos){
                 
                 ModeloFactura mf = new ModeloFactura();
                 ModeloPedidos mp = new ModeloPedidos();
-                ModeloPedidos mp2 = new ModeloPedidos();
-                
-                
-                
-                Producto producto = cp.getProducto(a.getIdProducto());
-                                
-//                cantidad += a.getCantidad();
-//                idprod += a.getIdProducto();
-//                mf.RegistrarSolicitar(a.getIdProducto(), a.getCantidad(), idped, rows);             
-//                mp.UpdateStock(a.getCantidad(), a.getIdProducto());
+                                               
                 if(mf.RegistrarSolicitar(a.getIdProducto(), a.getCantidad(), idped, rows)){
                     estado=true;
                     if(estado = true){

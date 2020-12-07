@@ -132,8 +132,9 @@
                                 <% if (articulos == null){%>
                                 <h4>No hay Articulos en el carro</h4>
                                 <%}%>
+                                <label>Monto: <%=amount%></label>
                                 <form action="<%=formAction%>" method="post">
-                                    <label>Monto: <input type="text" id="Name" name="Name" value="<%=amount%>" readonly/></label>
+                                    
                                     <input type="hidden" name="token_ws" value="<%=tokenWs%>">
                                     <input type="submit" class="btn btn-default check_out" value="PAGAR">
                                 </form>

@@ -46,9 +46,11 @@ public class ServletFactura2 extends HttpServlet {
             case "VD":
                 tipopago= "Venta Debito";
                 break;
+            case "VC":
+                tipopago = "Venta en Cuotas";
         }
         System.out.println("Tipo Pago: "+tipopago+"Codigo de orden: "+codeorder);
-        
+       
         int valor = 0;                     
         valor = mp.RegistrarPedido("Pendiente", request.getParameter("rut"),request.getParameter("patente"));               
         

@@ -24,7 +24,6 @@ public class ModeloPedidos extends Conexion {
         ResultSet rs = null;
         int lastid = -1;
         
-        System.out.println("Modelo: "+estado + rutCliente + matricula);
         
         try{
             
@@ -33,7 +32,6 @@ public class ModeloPedidos extends Conexion {
                 pst.setString(1,estado);
                 pst.setString(2,rutCliente);
                 pst.setString(3,matricula);
-                System.out.println("Modelo TRY: "+estado +" "+ rutCliente +" "+ matricula);
                 pst.executeUpdate();
 
                 
@@ -138,7 +136,6 @@ public class ModeloPedidos extends Conexion {
         pst.setString(4, estado);
         pst.setInt(5, idped);
         pst.executeUpdate();
-        System.out.println(id+" "+total+" "+tipopago+" "+estado+" "+idped);
         return true;
         }catch(Exception ex){
             System.out.println("Error al registrar venta");
@@ -239,6 +236,35 @@ public class ModeloPedidos extends Conexion {
             }
         }
         return venta;
+    }
+    
+        public ArrayList<Pedido> getListPedidos() throws SQLException{
+        ArrayList<Pedido> pedido = new ArrayList<>();
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try{
+            String sql = "select * from pedidos";
+            pst = getConnection().prepareStatement(sql);
+            rs = pst.executeQuery();
+            while(rs.next()){
+                pedido.add(new Pedido(rs.getInt("id_ped"),rs.getString("fecha_ped"),rs.getString("estado_ped"),rs.getString("id_usu_ped"),rs.getString("id_ve_ped")));
+            }
+        }catch(Exception e){
+            System.out.println("Error en obtener los pedidos");
+        }finally{
+            try{
+                if(rs != null){
+                    if(pst != null){
+                        if(getConnection() != null){
+                            getConnection().close();
+                        }
+                    }
+                }
+            }catch(Exception e){
+                System.out.println("Error");
+            }
+        }
+        return pedido;
     }
     
     public static void main(String[] args){

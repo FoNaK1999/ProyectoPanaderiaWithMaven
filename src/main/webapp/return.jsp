@@ -1,3 +1,4 @@
+<%@page import="cl.transbank.webpay.webpayplus.WebpayPlus"%>
 <%@page import="classes.Producto"%>
 <%@page import="classes.Session"%>
 <%@page import="java.util.ArrayList"%>
@@ -22,11 +23,11 @@
     // ...
     String token_ws = request.getParameter("token_ws");
     
+    
     TransactionResultOutput result =
         transaction.getTransactionResult(request.getParameter("token_ws"));
     WsTransactionDetailOutput output = result.getDetailOutput().get(0);
     
-
 %>
 <!DOCTYPE html>
 <html>
@@ -35,24 +36,31 @@
         <title>JSP Page</title>
     </head>
     <body>
+        
         <%           
-            if(output.getResponseCode()==0){ 
-            
+            if(output.getResponseCode()==0){        
         %> 
         
         <script>localStorage.clear();</script>
         <script>localStorage.setItem("amount","<%=output.getAmount()%>");</script>
         <script>localStorage.setItem("codeorder","<%=output.getBuyOrder()%>");</script>
         <script>localStorage.setItem("tipopago","<%=output.getPaymentTypeCode()%>");</script>
-                           
+        <script>localStorage.setItem("responsecode","<%=output.getResponseCode()%>");</script>           
         <form action="<%=result.getUrlRedirection()%>" method="post" id="return-form">
             <input type="hidden" name="token_ws" value="<%=token_ws%>">
         </form>
-        <script>
+        <script>          
             document.getElementById('return-form').submit();
         </script>
         <%
-         }
+         }else if(output.getResponseCode()<0){
+
+            response.sendRedirect("error.jsp");
+            
+        %>
+            <script>localStorage.clear();</script>
+        <%
+            }
         %>
     </body>
 </html>
