@@ -20,13 +20,13 @@ public class ControladorChofer {
         String htmlcode = "";       
         for(Chofer chofer : mc.getAllChofer()){
             htmlcode += "<tr>\n" +
-"                             <td class=\"column1\">"+chofer.getRut()+"</>\n" +
-"                             <td class=\"column1\">"+chofer.getNombre()+"</td>\n" +
-"                             <td class=\"column1\">"+chofer.getFono()+"</td>\n" +
-"                             <td class=\"column1\">"+chofer.getMail()+"</td>\n" +
-"                             <td class=\"column1\">"+chofer.getDireccion()+"</td>\n" +
-"                             <td class=\"column1\">"+chofer.getEstado()+"</td>\n" +                    
-"                             <td class=\"column1\"><a href='FormularioUpdateChofer.jsp?rut="+chofer.getRut()+"&nombre="+chofer.getNombre()+"&fono="+chofer.getFono()+"&mail="+chofer.getMail()+"&direccion="+chofer.getDireccion()+"'>Modificar</a><br><br><form action='BorrarChofer' method='post'><input type='text' name='hidden' style='display:none;' value='"+chofer.getRut()+"'><input type='submit' value='Eliminar'></form></td>\n" +
+"                             <th scope=\"row\">"+chofer.getRut()+"</th>\n" +
+"                             <td>"+chofer.getNombre()+"</td>\n" +
+"                             <td>"+chofer.getFono()+"</td>\n" +
+"                             <td>"+chofer.getMail()+"</td>\n" +
+"                             <td>"+chofer.getDireccion()+"</td>\n" +
+"                             <td>"+chofer.getEstado()+"</td>\n" +                    
+"                             <td><a href='FormularioUpdateChofer.jsp?rut="+chofer.getRut()+"&nombre="+chofer.getNombre()+"&fono="+chofer.getFono()+"&mail="+chofer.getMail()+"&direccion="+chofer.getDireccion()+"'>Modificar</a><br><br><form action='BorrarChofer' method='post'><input type='text' name='hidden' style='display:none;' value='"+chofer.getRut()+"'><input type='submit' value='Eliminar'></form></td>\n" +
 "                       </tr>";
         }        
         return htmlcode;        

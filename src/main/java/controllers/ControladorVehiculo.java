@@ -20,10 +20,10 @@ public class ControladorVehiculo {
         String htmlcode = "";       
         for(vehiculo auto : mv.getAllAuto()){
             htmlcode += "<tr>\n" +
-"                             <td class=\"column1\">"+auto.getMatricula()+"</>\n" +
-"                             <td class=\"column1\">"+auto.getRut_chofer()+"</td>\n" +
-"                             <td class=\"column1\">"+auto.getEstado()+"</td>\n" +
-"                             <td class=\"column1\"><a href='formularioUpdateVehiculo.jsp?matricula="+auto.getMatricula()+"&estado="+auto.getRut_chofer()+"&rutchofer="+auto.getEstado()+"'>Modificar</a><br><br><form action='BorrarVehiculo' method='post'><input type='text' name='hidden' style='display:none;' value='"+auto.getMatricula()+"'><input type='submit' value='Eliminar'></form></td>\n" +
+"                             <th scope=\"row\">"+auto.getMatricula()+"</th>\n" +
+"                             <td>"+auto.getRut_chofer()+"</td>\n" +
+"                             <td>"+auto.getEstado()+"</td>\n" +
+"                             <td><a href='formularioUpdateVehiculo.jsp?matricula="+auto.getMatricula()+"&estado="+auto.getRut_chofer()+"&rutchofer="+auto.getEstado()+"'>Modificar</a><br><br><form action='BorrarVehiculo' method='post'><input type='text' name='hidden' style='display:none;' value='"+auto.getMatricula()+"'><input type='submit' value='Eliminar'></form></td>\n" +
 "                       </tr>";
         }        
         return htmlcode;        

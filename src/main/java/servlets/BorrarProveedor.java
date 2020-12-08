@@ -39,7 +39,7 @@ public class BorrarProveedor extends HttpServlet {
         if(mprov.BorrarProveedor(rut)){
             response.sendRedirect("mantenedorProveedores.jsp");
         }else{
-            response.sendRedirect("manentedorProveedores.jsp?status=error");
+            response.sendRedirect("mantenedorProveedores.jsp?status=error");
         }
     }
 

@@ -111,7 +111,7 @@ public class ModeloVehiculo extends Conexion {
             pst.setString(1, matricula);
             pst.executeUpdate();
         }catch(Exception ex){
-            System.out.println("Error");
+            System.out.println("Error Seccion Modelo Vehiculo");
         }
         return false;
     }
